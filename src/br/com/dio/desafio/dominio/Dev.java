@@ -6,11 +6,20 @@ public class Dev {
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
-
+    
+    
+    //Método para se inscrever em um Bootcamp
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevsInscritos().add(this);
     }
+    
+    //Método para cancelar a matricula em um Bootcamp
+    public void cancelarInscricao(Bootcamp bootcamp) {
+    	bootcamp.removerDev(this);
+    }
+    
+    
 
     public void progredir() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();

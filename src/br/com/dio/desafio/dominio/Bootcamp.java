@@ -14,6 +14,12 @@ public class Bootcamp {
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
+    
+    //Método para remover um Dev, caso queira cancelar a matricula
+    public void removerDev(Dev dev) {
+    	this.devsInscritos.removeIf(d-> d.equals(dev));
+    	System.out.println("Cancelamento de matricula realizado!");
+    }
 
     public String getNome() {
         return nome;
